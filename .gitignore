@@ -1,18 +1,114 @@
-# This .gitignore is appropriate for repositories deployed to GitHub Pages and using
-# a Gemfile as specified at https://github.com/github/pages-gem#conventional
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Vien 💖</title>
 
-# Basic Jekyll gitignores (synchronize to Jekyll.gitignore)
-_site/
-.sass-cache/
-.jekyll-cache/
-.jekyll-metadata
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+        font-family: Arial, sans-serif;
+    }
 
-# Additional Ruby/bundler ignore for when you run: bundle install
-/vendor
+    .card {
+        width: 360px;
+        height: 450px;
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+    }
 
-# Specific ignore for GitHub Pages
-# GitHub Pages will always use its own deployed version of pages-gem
-# This means GitHub Pages will NOT use your Gemfile.lock and therefore it is
-# counterproductive to check this file into the repository.
-# Details at https://github.com/github/pages-gem/issues/768
-Gemfile.lock
+    .front, .inside {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transition: all 1s ease;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    /* Front (Click me page) */
+    .front {
+        background: #ff6f91;
+        color: white;
+        z-index: 2;
+        flex-direction: column;
+    }
+
+    /* Inside message */
+    .inside {
+        background: #fff8f8;
+        color: #ff4f7a;
+        transform: translateY(100%);
+        flex-direction: column;
+    }
+
+    .card.open .front {
+        transform: translateY(-100%);
+    }
+
+    .card.open .inside {
+        transform: translateY(0);
+    }
+
+    h1 {
+        font-size: 1.8em;
+        margin-bottom: 10px;
+    }
+
+    p {
+        font-size: 1em;
+        line-height: 1.5em;
+    }
+
+    .click {
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+
+</style>
+</head>
+
+<body>
+
+<div class="card" onclick="openCard()" id="card">
+
+    <!-- FRONT -->
+    <div class="front">
+        <div class="click">Click me 💌</div>
+    </div>
+
+    <!-- INSIDE -->
+    <div class="inside">
+        <h1>🎉 Happy Birthday Vien ❤️</h1>
+        <p>
+            I just wanna say I love you.<br><br>
+            I really enjoy being with you, and I’m always happy when it’s you.<br><br>
+            I look forward to doing more things with you — simple days, random moments, everything.<br><br>
+            I hope you achieve all your dreams. I’ll always be here supporting you.<br><br>
+            I’m really glad it’s you. 💖
+        </p>
+    </div>
+
+</div>
+
+<script>
+function openCard() {
+    document.getElementById("card").classList.add("open");
+}
+</script>
+
+</body>
+</html>
